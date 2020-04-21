@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project basedir="." name="microservice2">
+<property file="${basedir}/build.properties"/>
+<property name="dist" value="dist"/>
+<property name="build" value="build"/>
+<property name="dist-location" value="${basedir}/${build}/${dist}"/>
+<property description="System environment variables (set by Jenkins)" environment="env"/>
+<!--<path id="global.classpath"> <fileset dir="${web-inf-lib}"> <include name="**/*.jar" /> </fileset> <fileset dir="${common_lib}"> <include name="**/*.jar" /> </fileset> </path> -->
+<tstamp/>
+<target name="init" description="Creates the required build directories">
+<mkdir dir="${dist-location}"/>
+</target>
+<target name="clean" description="Cleans the build location">
+<delete dir="${build}"/>
+</target>
+<target name="create-zip" description="Generates zip file" depends="clean,init">
+<zip destfile="${dist-location}/deployables.zip">
+<zipfileset dir="${basedir}"/>
+<fileset dir="${basedir}" includes="*.txt"/>
+</zip>
+<echo message="awstraing zip file"/>
+</target>
+</project>
