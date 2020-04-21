@@ -14,9 +14,9 @@
 <delete dir="${build}"/>
 </target>
 <target name="create-zip" description="Generates zip file" depends="clean,init">
-<echo message=${dist-location} />
+<echo message="${dist-location}" />
 <zip destfile="${dist-location}/deployables.zip">
-<echo message=${basedir} />
+<echo message="${basedir}" />
 <zipfileset dir="${basedir}"/>
 <fileset dir="${basedir}" includes="*.txt"/>
 </zip>
