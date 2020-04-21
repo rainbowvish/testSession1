@@ -14,10 +14,12 @@
 <delete dir="${build}"/>
 </target>
 <target name="create-zip" description="Generates zip file" depends="clean,init">
+<echo message="destfile:"${dist-location}"/deployables.zip"/>
 <zip destfile="${dist-location}/deployables.zip">
+<echo message="basedir:"${basedir}/>
 <zipfileset dir="${basedir}"/>
 <fileset dir="${basedir}" includes="*.txt"/>
 </zip>
-<echo message="awstraing zip file"/>
+<echo message="aws training zip file"/>
 </target>
 </project>
